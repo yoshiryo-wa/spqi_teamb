@@ -15,9 +15,10 @@
         <p id="introduction"></p>
         <script type="text/javascript">
             var data = {{ jdata | tojson }};
-            document.getElementById("id").innerHTML = data.id;
-            document.getElementById("name").innerHTML = data.name;
-            document.getElementById("introduction").innerHTML = data.introduction;
+            console.log(data);
+            document.getElementById("id").innerHTML = data[0].id;
+            document.getElementById("name").innerHTML = data[0].name;
+            document.getElementById("introduction").innerHTML = data[0].introduction;
             document.getElementById("img").src = data.img;
         </script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
