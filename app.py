@@ -20,12 +20,14 @@ def login():
   payload = ({'name': name, 'phone': phone})
   headers = {'Content-Type': 'application/json'}
   
-  response = requests.post("http://at-qatest01.internaladds.wingarc.com:8080/api/v1/t_teamb/login", json=payload, headers=headers)
-  data = response.json()
+  response_login = requests.post("http://at-qatest01.internaladds.wingarc.com:8080/api/v1/t_teamb/login", json=payload, headers=headers)
+  data = response_login.json()
   if data.get("result"): # 'result'がtrueであれば
-      return render_template('profile.html', data=data)
+      response_phone = requests.get("http://at-qatest01.internaladds.wingarc.com:8080/api/v1/t_teamb/userinfo/" + phone)
+      profile = response_phone.json()
+      return render_template('profile.html', jdata=profile)
   else:
-      print(f"Error: {response.status_code}")  # エラーの場合はステータスコードを出力
+      print(f"Error")  # エラーの場合はステータスコードを出力
 
 # アプリケーションの起動
 if __name__ == '__main__':
