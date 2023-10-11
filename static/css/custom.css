@@ -2,6 +2,9 @@ form{
 	width:600px; /*お好みで調整してください*/
 	margin:0 auto;
 }
+p{
+	border:solid 1px #000000;
+}
 .inputs{
 	overflow: hidden;
 	margin-bottom: 20px;
