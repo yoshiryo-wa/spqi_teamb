@@ -10,13 +10,12 @@
 	</head>
     <body class="bg-light text-dark text-center">
         <img id="img" alt="プロフィール写真"/>
-        <a id="id"></a>
-        <h1 id="name">No.000001</h1>
+        <a id="id">No.000001</a>
+        <h1 id="name"></h1>
         <p id="introduction"></p>
         <script type="text/javascript">
             var data = {{ jdata | tojson }};
             console.log(data);
-            document.getElementById("id").innerHTML = data[0].id;
             document.getElementById("name").innerHTML = data[0].nickname;
             document.getElementById("introduction").innerHTML = data[0].introduction;
             document.getElementById("img").src = data[0].profileImg;
