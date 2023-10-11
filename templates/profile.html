@@ -9,7 +9,7 @@
         <script src="../static/js/main.js"></script>
 	</head>
     <body class="bg-light text-dark text-center">
-        <img class="" src="" alt="プロフィール写真"/>
+        <img id="img" alt="プロフィール写真"/>
         <a id="id"></a>
         <h1 id="name">No.000001</h1>
         <p id="introduction"></p>
@@ -17,9 +17,9 @@
             var data = {{ jdata | tojson }};
             console.log(data);
             document.getElementById("id").innerHTML = data[0].id;
-            document.getElementById("name").innerHTML = data[0].name;
+            document.getElementById("name").innerHTML = data[0].nickname;
             document.getElementById("introduction").innerHTML = data[0].introduction;
-            document.getElementById("img").src = data.img;
+            document.getElementById("img").src = data[0].profileImg;
         </script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
     </body>
